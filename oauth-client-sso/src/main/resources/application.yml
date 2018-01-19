@@ -1,0 +1,32 @@
+logging:
+  level:
+    root: TRACE
+    org.springframework.web: TRACE
+    org.springframework.security: TRACE
+
+facebook:
+  client:
+    clientId: 233668646673605
+    clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+      #https://github.com/login?client_id=bd1c0a783ccdd1c9b9e4&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3Dbd1c0a783ccdd1c9b9e4%26redirect_uri%3Dhttp%253A%252F%252F10.229.151.225%253A8080%252Flogin%26response_type%3Dcode%26state%3D2g19OB
+
+ #Access Token Request http://localhost:8080/login/github?code=ef58f050e90fe7002742&state=Ko6K5F
+
+github:
+  client:
+    clientId: bd1c0a783ccdd1c9b9e4
+    clientSecret: 1a9030fbca47a5b2c28e92f19050bb77824b5ad1
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+  #  filter-order: 3

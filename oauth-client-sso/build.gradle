@@ -1,0 +1,61 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+       classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    //    classpath "io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+
+group = 'com.sample'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+    springCloudVersion = 'Edgware.RELEASE'
+}
+
+dependencies {
+   // compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+    // compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+
+     compile('org.springframework.boot:spring-boot-starter-web')
+     compile('org.springframework.security.oauth:spring-security-oauth2')
+
+
+
+
+//We added Twitter bootstrap and jQuery, styleshets will not be loaded without these
+    compile('org.webjars:bootstrap:3.3.7')
+    compile('org.webjars:jquery:2.2.1')
+
+    // webjar locator is provided as a library by the webjars site
+    // It is activated by default in a Spring Boot app as long as you don’t switch off the MVC autoconfiguration. */
+    // It is used by Spring to locate static assets in webjars without needing to know the exact versions (hence the versionless /webjars/** links in the index.html).
+    compile('org.webjars:webjars-locator')
+
+    // for Cookies
+    compile('org.webjars:js-cookie:2.0.2')
+
+    runtime('org.springframework.boot:spring-boot-devtools')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
